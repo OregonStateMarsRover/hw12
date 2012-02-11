@@ -1,0 +1,24 @@
+The purpose of this test is to determine the appropriate method of termination for RS-485 signaling through CAT5 with the SN65HVD32 as
+the signal source.
+
+test1a.csv:
+	Source Termination: NONE
+	Load Termination: 100ohms
+	Measurement: Load
+	Notes: Almost no ringing. DC current draw 33mA.
+test1b.csv:
+	Source Termination: NONE
+	Load Termination: 100ohms
+	Measurement: Source
+	Notes: Small overshoot, pretty much as good as it can be.
+
+test2a.csv:
+	Source Termination: NONE
+	Load Termination: NONE
+	Measurement: Load
+	Notes: Ringing, 210mV of overshoot.
+test2b.csv:
+	Source Termination: NONE
+	Load Termination: NONE
+	Measurement: Source
+	Notes: Ringing, 210mV of overshoot.
