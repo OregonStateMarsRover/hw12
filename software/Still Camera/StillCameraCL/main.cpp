@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     
     StillCamera *sc = new StillCamera();
-    printf("%d\n", sc->getMode());
+    printf("%x\n", sc->getMode());
 
     return a.exec();
 }
