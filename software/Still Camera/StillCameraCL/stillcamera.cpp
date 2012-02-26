@@ -10,6 +10,9 @@ struct IdCommand { //also has a checksum after id and syncs (0xaa) on each end f
     uint8_t plen;  //length of parameter command
     uint8_t id;    // command id number (from sc_commands.h)
 };
+
+
+
 //constructor
 StillCamera::StillCamera(QObject *parent) :
     QObject(parent)
@@ -45,6 +48,9 @@ uint16_t StillCamera::_checksum16(uint8_t* data, int n)
     return (uint16_t)sum;
 }
 
+/*generates checksum and adds sync bytes on each end of the given array
+  before sending over associated serial port
+*/
 void StillCamera::_sendCommand(uint8_t* command, int n)
 {
     uint8_t *message = (uint8_t*)malloc((n+3)*sizeof(uint8_t));
@@ -58,20 +64,40 @@ void StillCamera::_sendCommand(uint8_t* command, int n)
     //todo serial->send(message)
 }
 
-
 void StillCamera::_setMode(Mode mode)
 {
     IdCommand id;
     id.plen = 0x01;
     id.id = SET_MODE;
-    this->_sendCommand((uint8_t*)&id, 2);
+
     uint8_t params[1] = {mode};
+
+    this->_sendCommand((uint8_t*)&id, 2);
     this->_sendCommand(params, 1);
 
-    //todo: waitforAck(ack)
+    //todo: ack = waitforAck()
+}
+
+void StillCamera::_setBaudRate(Baudrate rate)
+{
+    IdCommand id;
+    id.plen = 0x01;
+    id.id = SET_BAUDRATE;
+
+    uint8_t params[1] = {rate};
+
+    this->_sendCommand((uint8_t*)&id, 2);
+    this->_sendCommand(params, 1);
+
+    //todo: ack = waitforAck()
 }
 
 //public functions
+void StillCamera::init()
+{
+    return;
+}
+
 int StillCamera::getMode()
 {
     IdCommand id;
