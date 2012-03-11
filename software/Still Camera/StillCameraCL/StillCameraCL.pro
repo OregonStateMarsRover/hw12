@@ -16,8 +16,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    stillcamera.cpp
+    stillcamera.cpp \
+    Serial.cpp
 
 HEADERS += \
     stillcamera.h \
-    sc_commands.h
+    sc_commands.h \
+    Serial.h
+
+OTHER_FILES +=
