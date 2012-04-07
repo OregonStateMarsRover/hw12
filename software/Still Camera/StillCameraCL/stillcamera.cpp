@@ -4,6 +4,8 @@
 #include "stillcamera.h"
 #include "sc_commands.h"
 
+#include <cstdio>
+
 
 
 struct IdCommand { //also has a checksum after id and syncs (0xaa) on each end for every packet
@@ -18,6 +20,8 @@ StillCamera::StillCamera(QObject *parent) :
     QObject(parent)
 {
     this->mode = IDLE;
+    this->resolution = RES1280;
+    this->compression = 0x18;
 }
 
 //private functions
@@ -62,6 +66,11 @@ void StillCamera::_sendCommand(uint8_t* command, int n)
     }
 
     //todo serial->send(message)
+    for(int i = 0; i < n+3; i++)
+    {
+        printf("%02x", message[i]);
+    }
+    printf("\n");
 }
 
 void StillCamera::_setMode(Mode mode)
@@ -92,6 +101,26 @@ void StillCamera::_setBaudRate(Baudrate rate)
     //todo: ack = waitforAck()
 }
 
+void StillCamera::_setResComp(Resolution res, uint8_t comp)
+{
+    IdCommand id;
+    id.plen = 0x02;
+    id.id = SET_RES_AND_COMP;
+
+    if((comp < 0x00) || (comp > 0x2c))
+    {
+        printf("Bad value for compression ratio\n");
+    }
+
+    uint8_t params[2] = {res, comp};
+
+    this->_sendCommand((uint8_t*)&id, 2);
+    this->_sendCommand(params, 2);
+
+    //todo: ack = waitforAck()
+
+}
+
 //public functions
 void StillCamera::init()
 {
@@ -106,3 +135,15 @@ int StillCamera::getMode()
     return this->_checksum8((uint8_t*)&id, 2);
 }
 
+
+void StillCamera::setResolution(Resolution res)
+{
+    this->_setResComp(res, this->compression);
+    this->resolution = res;
+}
+
+void StillCamera::setCompression(uint8_t comp)
+{
+    this->_setResComp(this->resolution, comp);
+    this->compression = comp;
+}

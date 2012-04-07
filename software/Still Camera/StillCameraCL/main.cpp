@@ -10,7 +10,9 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     
     StillCamera *sc = new StillCamera();
-
+    sc->setCompression(0x2c);
+    sc->setResolution(RES640);
+    sc->setCompression(0x18);
     printf("%x\n", sc->getMode());
 
     return a.exec();
