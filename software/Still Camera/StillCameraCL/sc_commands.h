@@ -5,6 +5,8 @@
 #define SC_COMMANDS_H
 
 //command IDs
+#define DOWNLOAD_JPG 0x79 //initiate download of file specified by ID number
+
 #define SET_MODE 0x1e //select current operating mode
 #define GET_MODE 0x1f //request current operating mode
 

@@ -15,5 +15,7 @@ int main(int argc, char *argv[])
     sc->setCompression(0x18);
     printf("%x\n", sc->getMode());
 
+    sc->downloadFile(0x0001);
+
     return a.exec();
 }

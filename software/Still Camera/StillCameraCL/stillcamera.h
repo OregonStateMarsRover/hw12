@@ -27,17 +27,18 @@ class StillCamera : public QObject
     uint8_t _checksum8(uint8_t* command, int n);
     uint16_t _checksum16(uint8_t* command, int n);
     void _sendCommand(uint8_t* command, int n);
-    void _setMode(Mode mode);
-    void _setBaudRate(Baudrate rate);
-    void _setResComp(Resolution res, uint8_t comp);
+    uint8_t _setMode(Mode mode);
+    uint8_t _setBaudRate(Baudrate rate);
+    uint8_t _setResComp(Resolution res, uint8_t comp);
 
 public:
     explicit StillCamera(QObject *parent = 0);
     void init();
-    int getMode();
-    void setResolution(Resolution res);
-    void setCompression(uint8_t comp);
+    Mode getMode();
+    uint8_t setResolution(Resolution res);
+    uint8_t setCompression(uint8_t comp);
     int takePicture();
+    uint8_t downloadFile(uint16_t file_id);
 
 signals:
     
