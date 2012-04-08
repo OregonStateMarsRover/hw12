@@ -22,6 +22,8 @@ StillCamera::StillCamera(QObject *parent) :
     this->mode = IDLE;
     this->resolution = RES1280;
     this->compression = 0x18;
+
+    this->pict_count = 0;
 }
 
 //private functions
@@ -50,6 +52,22 @@ uint16_t StillCamera::_checksum16(uint8_t* data, int n)
     }
     sum = sum & 0x0000ffff;
     return (uint16_t)sum;
+}
+
+uint8_t StillCamera::_waitForAck(uint8_t* ack)
+{
+    uint8_t test[] = {0x12, 0x79, 0x00, 0x1a, 0x7d, 0x6e, 0x00, 0x1d, 0x50, 0x49, 0x43, 0x54, 0x30, 0x30, 0x30, 0x33, 0x2e, 0x41, 0x56, 0x49};
+    memcpy(ack, test, sizeof(test)+1);
+
+    return 0x00;
+}
+
+uint8_t StillCamera::_waitForData(uint8_t* data)
+{
+    uint8_t test[] = {0x41,0x42};
+    memcpy(data, test, sizeof(test));
+
+    return 0x00;
 }
 
 /*generates checksum and adds sync bytes on each end of the given array
@@ -146,32 +164,35 @@ uint8_t StillCamera::downloadFile(uint16_t file_id)
     this->_sendCommand((uint8_t*)&id, 2);
     this->_sendCommand(params, 2);
     //wait to receive Ack, store the info
-    uint8_t ack[38] = {0x12, 0x79, 0x00, 0x1a, 0x7d, 0x6e, 0x00, 0x1d, 0x50, 0x49, 0x43, 0x54, 0x30, 0x30, 0x30, 0x33, 0x2e, 0x41, 0x56, 0x49}; // = waitForAck();
+    uint8_t ack[38] = {0x00};
+    this->_waitForAck(ack);
     uint8_t packet_size = ack[0];
     uint32_t size = (ack[2]<<24) | (ack[3]<<16) | (ack[4]<<8) | (ack[5]);
     uint16_t n = (ack[6]<<8) | (ack[7]);
     char name[24] = {0x00};
     strncpy(name, (char*)(ack + 8), packet_size - 6);
-    printf("%s", name);
+    printf("%s:%d", name, size);
 
-    //create file pointer
+    //prepare file
     FILE *fp = fopen(name,"w");
 
-    //wait receive packets, writing them into file
+    //wait to receive packets, writing them into file
 
     uint16_t received = 0x0000;
     while (received < n)
     {
-        uint8_t data[] = {0x41, 0x41}; // = waitForData();
+        uint8_t *data = (uint8_t *)calloc(DATA_PACKET_BYTES, sizeof(uint8_t));
+        this->_waitForData(data);
         //write data
         fwrite(data, 1, sizeof(data), fp);
+        free(data);
         //TODO:send ack
 
         received++;
     }
 
-    //close file pointer
-
+    //finish file
+    fclose(fp);
     return 0x00;
 }
 
