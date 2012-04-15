@@ -4,12 +4,11 @@
 #ifndef STILLCAMERA_H
 #define STILLCAMERA_H
 
-#include <QObject>
 #define STRICT
 #include <tchar.h>
 #include <windows.h>
 #include "stdint.h"
-//#include "Serial.h"
+#include "serial.h"
 
 #define DATA_PACKET_BYTES 614343
 
@@ -18,11 +17,8 @@ enum Mode {FAILED = 0x01, USB = 0x02, IDLE = 0x03, CAPTURE_JPG = 0x04, CAPTURE_A
 enum Baudrate {BAUD57600 = 0x04, BAUD115200 = 0x05};
 enum Resolution {RES1280 = 0x00, RES640 = 0x01};
 
-class StillCamera : public QObject
+class StillCamera
 {
-    Q_OBJECT
-    //CSerial *serial;
-
     Mode mode;
     Resolution resolution;
     uint8_t compression;
@@ -41,7 +37,7 @@ class StillCamera : public QObject
     uint8_t _setResComp(Resolution res, uint8_t comp);
 
 public:
-    explicit StillCamera(QObject *parent = 0);
+    explicit StillCamera();
     void init();
     Mode getMode();
     uint8_t setResolution(Resolution res);

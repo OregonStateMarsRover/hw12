@@ -16,8 +16,7 @@ struct IdCommand { //also has a checksum after id and syncs (0xaa) on each end f
 
 
 //constructor
-StillCamera::StillCamera(QObject *parent) :
-    QObject(parent)
+StillCamera::StillCamera()
 {
     this->mode = IDLE;
     this->resolution = RES1280;
