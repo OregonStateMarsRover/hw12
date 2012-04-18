@@ -6,13 +6,13 @@
 
 int main(int argc, char *argv[])
 { 
-    StillCamera *sc = new StillCamera();
-    sc->setCompression(0x2c);
-    sc->setResolution(RES640);
-    sc->setCompression(0x18);
+	Serial *serial = new Serial();
+	serial->open_port("/dev/ttyACM0");
+	serial->configure_port();
+
+    StillCamera *sc = new StillCamera(serial);
+
     printf("%x\n", sc->getMode());
 
-    sc->downloadFile(0x0001);
-
-    return a.exec();
+    return 0;
 }

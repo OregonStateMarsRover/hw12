@@ -5,7 +5,8 @@
 #include "sc_commands.h"
 
 #include <cstdio>
-
+#include <cstdlib>
+#include <cstring>
 
 
 struct IdCommand { //also has a checksum after id and syncs (0xaa) on each end for every packet
@@ -14,15 +15,10 @@ struct IdCommand { //also has a checksum after id and syncs (0xaa) on each end f
 };
 
 
-
 //constructor
-StillCamera::StillCamera()
+StillCamera::StillCamera(Serial *s)
 {
-    this->mode = IDLE;
-    this->resolution = RES1280;
-    this->compression = 0x18;
-
-    this->pict_count = 0;
+    this->serial = s;
 }
 
 //private functions
@@ -53,15 +49,17 @@ uint16_t StillCamera::_checksum16(uint8_t* data, int n)
     return (uint16_t)sum;
 }
 
-uint8_t StillCamera::_waitForAck(uint8_t* ack)
+uint8_t StillCamera::_waitForAck(uint8_t* ack, int n)
 {
-    uint8_t test[] = {0x12, 0x79, 0x00, 0x1a, 0x7d, 0x6e, 0x00, 0x1d, 0x50, 0x49, 0x43, 0x54, 0x30, 0x30, 0x30, 0x33, 0x2e, 0x41, 0x56, 0x49};
-    memcpy(ack, test, sizeof(test)+1);
+    //wait up to 20ms for reply
+    this->serial->wait(20);
 
-    return 0x00;
+    this->serial->read_block(ack, n);
+
+    return *(ack+1);
 }
 
-uint8_t StillCamera::_waitForData(uint8_t* data)
+uint8_t StillCamera::_waitForData(uint8_t* data, int n)
 {
     uint8_t test[] = {0x41,0x42};
     memcpy(data, test, sizeof(test));
@@ -83,6 +81,7 @@ void StillCamera::_sendCommand(uint8_t* command, int n)
     }
 
     //todo serial->send(message)
+    this->serial->send_block(message, n+3);
     for(int i = 0; i < n+3; i++)
     {
         printf("%02x", message[i]);
@@ -145,8 +144,11 @@ uint8_t StillCamera::_setResComp(Resolution res, uint8_t comp)
 }
 
 //public functions
+/*Send commands for startup sequence*/
 void StillCamera::init()
 {
+
+    //TODO: set current mode, resolution, other settings
     return;
 }
 
@@ -164,7 +166,10 @@ uint8_t StillCamera::downloadFile(uint16_t file_id)
     this->_sendCommand(params, 2);
     //wait to receive Ack, store the info
     uint8_t ack[38] = {0x00};
-    this->_waitForAck(ack);
+
+
+    this->_waitForAck(ack, 23);
+
     uint8_t packet_size = ack[0];
     uint32_t size = (ack[2]<<24) | (ack[3]<<16) | (ack[4]<<8) | (ack[5]);
     uint16_t n = (ack[6]<<8) | (ack[7]);
@@ -181,7 +186,7 @@ uint8_t StillCamera::downloadFile(uint16_t file_id)
     while (received < n)
     {
         uint8_t *data = (uint8_t *)calloc(DATA_PACKET_BYTES, sizeof(uint8_t));
-        this->_waitForData(data);
+        this->_waitForData(data, DATA_PACKET_BYTES);
         //write data
         fwrite(data, 1, sizeof(data), fp);
         free(data);
@@ -204,9 +209,12 @@ Mode StillCamera::getMode()
 
     this->_sendCommand((uint8_t*)&id, 2);
 
-    //todo: ack = waitforAck()
+    int n = GET_MODE_ACK;
+    uint8_t *ack = (uint8_t*)malloc(n * sizeof(uint8_t));
 
-    return (Mode)0x00; //return ack code
+    this->_waitForAck(ack, n);
+
+    return (Mode)ack[3];
 }
 
 
