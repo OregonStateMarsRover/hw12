@@ -23,10 +23,10 @@ void sabertooth_init(void)
 
 void send_command(uint8_t address, uint8_t opcode, uint8_t data)
 {
-	usart_send_byte(USARTD0, address);
-	usart_send_byte(USARTD0, opcode);
-	usart_send_byte(USARTD0, data);
-	usart_send_byte(USARTD0, (address + opcode + data) & 0x7F);
+	usart_send_byte(&USARTD0, address);
+	usart_send_byte(&USARTD0, opcode);
+	usart_send_byte(&USARTD0, data);
+	usart_send_byte(&USARTD0, (address + opcode + data) & 0x7F);
 }
 
 void drive_set(int8_t speed)
