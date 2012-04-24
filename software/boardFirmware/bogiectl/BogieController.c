@@ -4,53 +4,105 @@
 
 #include "BogieController.h"
 
-
+USART_data_t USART_motor;
+USART_data_t USART_mainboard;
 
 void bogie_controller_init(void)
 {
-	SREG = 0b1000000; //enable global interrupts
-	PMIC.CTRL = 0b00000111;  //enable high, medium, and low priority interrupts
 	
+	/***set I/O port directions***/
 	PORTA.DIR = 0x00;
 	PORTB.DIR = 0x00;
-	PORTC.DIR = 0b00001010;
-	PORTD.DIR = 0b00111110;
+	PORTC.DIR = PIN1_bm & PIN3_bm;
+	PORTD.DIR = PIN1_bm & PIN2_bm & PIN3_bm & PIN4_bm & PIN5_bm;
 
-	//Motor Driver USART init
-	USARTD0.CTRLA = 0b00010000; //enable RX interrupt with low priority
-	USARTD0.CTRLB = 0b00001000; //enable TX, leave RX disabled
-	USARTD0.CTRLC = 0b00000011; //Asychronous mode, no parity, 1 stop bit, 8 bit data
-	USARTD0.BAUDCTRLA = 0x0C; //BSEL = 12
-	USARTD0.BAUDCTRLB = 0x00; //BSCALE = 0
+	/***Motor Driver USART init***/
+		
+	//enable DRE interrupt with low priority
 	
-	//Mother Board USAR init
-	USARTD0.CTRLA = 0x00;
-	USARTD0.CTRLB = 0b00011000; //enable TX, RX 
-	USARTD0.CTRLC = 0b00000011; //Asychronous mode, no parity, 1 stop bit, 8 bit data
-	USARTD0.BAUDCTRLA = 0x0C; //BSEL = 12
-	USARTD0.BAUDCTRLB = 0x00; //BSCALE = 0
+	USART_InterruptDriver_Initialize(&USART_motor, &USARTD0, USART_DREINTLVL_LO_gc); 
+
+	/* 8 Data bits, No Parity, 1 Stop bit. */
+	USART_Format_Set(USART_motor.usart, USART_CHSIZE_8BIT_gc,
+                     USART_PMODE_DISABLED_gc, false);
+
+	/* Set Baudrate to 9600 bps:
+	 * Use the default I/O clock frequency that is 2 MHz.
+	 * Do not use the baudrate scale factor
+	 *
+	 * Baudrate select = (1/(16*(((I/O clock frequency)/Baudrate)-1)
+	 *                 = 12
+	 */
+	USART_Baudrate_Set(&USARTD0, 12 , 0);
+
+	/* Enable TX. */
+	USART_Tx_Enable(USART_motor.usart);
+
+	/***Mainboard USART init***/
 	
-	PORTD.OUTSET = 0b00010000;
+	//USART_InterruptDriver_Initialize(&USART_mainboard, &USARTC0, USART_DREINTLVL_LO_gc); 
+
+	/* 8 Data bits, No Parity, 1 Stop bit. */
+	//USART_Format_Set(USART_mainboard.usart, USART_CHSIZE_8BIT_gc,
+    //                 USART_PMODE_DISABLED_gc, false);
+					 
+	/* Enable RXC interrupt. */
+	//USART_RxdInterruptLevel_Set(USART_mainboard.usart, USART_RXCINTLVL_LO_gc);
+
+	/* Set Baudrate to 9600 bps:
+	 * Use the default I/O clock frequency that is 2 MHz.
+	 * Do not use the baudrate scale factor
+	 *
+	 * Baudrate select = (1/(16*(((I/O clock frequency)/Baudrate)-1)
+	 *                 = 12
+	 */
+	//USART_Baudrate_Set(&USARTC0, 12 , 0);
+
+	/* Enable RX and TX. */
+	//USART_Rx_Enable(USART_mainboard.usart);
+	//USART_Tx_Enable(USART_mainboard.usart);
+	
+	/*** Global Interrupt init***/	
+
+	/* Enable PMIC interrupt level low. */
+	PMIC.CTRL |= PMIC_LOLVLEX_bm;
+
+	/* Enable global interrupts. */
+	sei();
+	
+	
+	/*** Initialize Sabertooth Motor Driver ***/
+	
+	sabertooth_init(&USART_motor);
 }
 
-#pragma vector=USARTC0_RXC_vect
-__interrupt void message_handler(void)
+ISR(USARTC0_RXC_vect)
 {
-	//handle message from mainboard
+	USART_RXComplete(&USART_mainboard);
 }
+
+
+ISR(USARTC0_DRE_vect)
+{
+	USART_DataRegEmpty(&USART_mainboard);
+}
+
+ISR(USARTD0_DRE_vect)
+{
+	USART_DataRegEmpty(&USART_motor);
+	
+	drive_set(0);
+}
+
 
 int main(void)
 {
-	int8_t speed = 0;
-	
 	bogie_controller_init();
-	
+	PORTD.OUTSET = 0b00010000;
+	drive_set(0);
 	while(1)
 	{
+		_delay_ms(500);
 		PORTD.OUTTGL = 0b00110000;
-		_delay_ms(18);
-		drive_set(speed);
-		if (speed == 0x7F) speed = -0x7F;
-		else speed = speed+1;
 	}
 }

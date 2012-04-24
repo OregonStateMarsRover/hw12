@@ -13,6 +13,8 @@
 #include <avr/interrupt.h>
 #include <stdint.h>
 
+#include "usart_driver.h"
+
 struct PIDobject 
 {
 	uint16_t p;			//proportional constant

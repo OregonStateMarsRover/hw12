@@ -12,8 +12,12 @@
 #define DRIVE_REVERSE_CMD 1
 #define TIMEOUT_CMD 14
 
-void sabertooth_init(void)
+USART_data_t *USART_sabertooth;
+
+void sabertooth_init(USART_data_t *USART_data)
 {
+	USART_sabertooth = USART_data;
+	
 	uint8_t address = SABERTOOTH_ADDRESS;
 	uint8_t opcode = TIMEOUT_CMD;
 	uint8_t timeout = 10; //10 * 100ms = 1s
@@ -23,10 +27,10 @@ void sabertooth_init(void)
 
 void send_command(uint8_t address, uint8_t opcode, uint8_t data)
 {
-	usart_send_byte(&USARTD0, address);
-	usart_send_byte(&USARTD0, opcode);
-	usart_send_byte(&USARTD0, data);
-	usart_send_byte(&USARTD0, (address + opcode + data) & 0x7F);
+	USART_TXBuffer_PutByte(USART_sabertooth, address);
+	USART_TXBuffer_PutByte(USART_sabertooth, opcode);
+	USART_TXBuffer_PutByte(USART_sabertooth, data);
+	USART_TXBuffer_PutByte(USART_sabertooth, (address + opcode + data) & 0x7F);
 }
 
 void drive_set(int8_t speed)
