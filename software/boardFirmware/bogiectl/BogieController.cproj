@@ -106,6 +106,18 @@
     <Compile Include="BogieController.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Encoders.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Encoders.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="qdec_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="qdec_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Sabertooth.c">
       <SubType>compile</SubType>
     </Compile>

@@ -13,8 +13,8 @@ void bogie_controller_init(void)
 	/***set I/O port directions***/
 	PORTA.DIR = 0x00;
 	PORTB.DIR = 0x00;
-	PORTC.DIR = PIN1_bm & PIN3_bm;
-	PORTD.DIR = PIN1_bm & PIN2_bm & PIN3_bm & PIN4_bm & PIN5_bm;
+	PORTC.DIR = PIN1_bm | PIN3_bm;
+	PORTD.DIR = PIN1_bm | PIN2_bm | PIN3_bm | PIN4_bm | PIN5_bm;
 
 	/***Motor Driver USART init***/
 		
@@ -40,14 +40,14 @@ void bogie_controller_init(void)
 
 	/***Mainboard USART init***/
 	
-	//USART_InterruptDriver_Initialize(&USART_mainboard, &USARTC0, USART_DREINTLVL_LO_gc); 
+	USART_InterruptDriver_Initialize(&USART_mainboard, &USARTC0, USART_DREINTLVL_LO_gc); 
 
 	/* 8 Data bits, No Parity, 1 Stop bit. */
-	//USART_Format_Set(USART_mainboard.usart, USART_CHSIZE_8BIT_gc,
-    //                 USART_PMODE_DISABLED_gc, false);
+	USART_Format_Set(USART_mainboard.usart, USART_CHSIZE_8BIT_gc,
+                     USART_PMODE_DISABLED_gc, false);
 					 
 	/* Enable RXC interrupt. */
-	//USART_RxdInterruptLevel_Set(USART_mainboard.usart, USART_RXCINTLVL_LO_gc);
+	USART_RxdInterruptLevel_Set(USART_mainboard.usart, USART_RXCINTLVL_LO_gc);
 
 	/* Set Baudrate to 9600 bps:
 	 * Use the default I/O clock frequency that is 2 MHz.
@@ -56,11 +56,11 @@ void bogie_controller_init(void)
 	 * Baudrate select = (1/(16*(((I/O clock frequency)/Baudrate)-1)
 	 *                 = 12
 	 */
-	//USART_Baudrate_Set(&USARTC0, 12 , 0);
+	USART_Baudrate_Set(&USARTC0, 12 , 0);
 
 	/* Enable RX and TX. */
-	//USART_Rx_Enable(USART_mainboard.usart);
-	//USART_Tx_Enable(USART_mainboard.usart);
+	USART_Rx_Enable(USART_mainboard.usart);
+	USART_Tx_Enable(USART_mainboard.usart);
 	
 	/*** Global Interrupt init***/	
 
@@ -90,8 +90,6 @@ ISR(USARTC0_DRE_vect)
 ISR(USARTD0_DRE_vect)
 {
 	USART_DataRegEmpty(&USART_motor);
-	
-	drive_set(0);
 }
 
 
@@ -99,10 +97,10 @@ int main(void)
 {
 	bogie_controller_init();
 	PORTD.OUTSET = 0b00010000;
-	drive_set(0);
 	while(1)
 	{
 		_delay_ms(500);
 		PORTD.OUTTGL = 0b00110000;
+		drive_set(0);
 	}
 }

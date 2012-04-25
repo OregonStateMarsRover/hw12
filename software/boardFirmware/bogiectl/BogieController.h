@@ -7,7 +7,7 @@
 
 #include "BogieCommon.h"
 #include "Sabertooth.h"
-
+#include "Encoders.h"
 
  void bogie_controller_init(void);
 
