@@ -1,13 +1,17 @@
-function [G,RG,V] = gain(Vin,Vref)
+function [G,RG,V,Vdif,Rreal,Rctl,Greal] = gain(Vin,Vref,bits)
 
 % Create result vectors, variables, and constants
-steps = Vin/Vref;
+steps = ceil(Vin/Vref);
 RG = zeros(1,steps);
+Rctl = RG;
+Vdif = RG;
 G = RG;
 V = RG;
-Rdif = 1000; % Sensing resistor
-Rin = 21000; % Total input resistance
-Ria = 49400; % LT1167 feedback resistance
+Rdif = 1000;   % Sensing resistor
+Rin = 21000;   % Total input resistance
+Ria = 49400;   % LT1167 feedback resistance
+Rpot = 100E3;  % Digital potentiometer value
+Pstp = 2^bits; % Digital potentiometer steps
 
 % Create input voltage step vector
 i=1;
@@ -16,11 +20,11 @@ while (i<=steps)
     i=i+1;
 end
 
-% Calculate G and RG for each step
+% Calculate ideal G and RG for each step
 i=1;
 while (i<=steps)
-    Vdif = (V(i)/Rin)*Rdif;
-    G(i) = Vref/Vdif;
+    Vdif(i) = (V(i)/Rin)*Rdif;
+    G(i) = Vref/Vdif(i);
     RG(i) = Ria/(G(i)-1);
     if(RG(i)<0)
         G = 'Vref is too small'
@@ -29,3 +33,37 @@ while (i<=steps)
     end
     i = i+1;
 end
+
+% Calculate acheivable RG and G with potentiometer parameters
+Rmin = Rpot/Pstp;
+Rreal = Rmin*ceil(RG./Rmin);
+Rerr = Rreal-RG;
+
+Greal = 1+Ria./Rreal;
+Gerr = Greal-G;
+
+% Calculate measured voltage
+Vout = Vdif.*Greal;
+VOerr = Vout-Vref;
+
+% Generate potentiometer control bytes
+Rctl = Rreal./Rmin;
+
+%% Generate plots
+figure
+plot(Rerr)
+title('Potentiometer Resistance Error From Calculated Value');
+ylabel('Resistance (ohms)');
+xlabel('Discrete gain steps');
+
+figure
+plot(Gerr);
+title('Gain Error From Calculated Value');
+ylabel('Gain');
+xlabel('Discrete gain steps');
+
+figure
+plot(VOerr)
+title('Output Voltage - Reference Voltage');
+ylabel('Output Voltage (V)');
+xlabel('Discrete gain steps');
