@@ -7,8 +7,8 @@ Rctl = RG;
 Vdif = RG;
 G = RG;
 V = RG;
-Rdif = 1000;   % Sensing resistor
-Rin = 21000;   % Total input resistance
+Rdif = 1100;   % Sensing resistor
+Rin = 21100;   % Total input resistance
 Ria = 49400;   % LT1167 feedback resistance
 Rpot = 100E3;  % Digital potentiometer value
 Pstp = 2^bits; % Digital potentiometer steps
@@ -24,7 +24,7 @@ end
 i=1;
 while (i<=steps)
     Vdif(i) = (V(i)/Rin)*Rdif;
-    G(i) = Vref/Vdif(i);
+    G(i) = 2*Vref/Vdif(i);
     RG(i) = Ria/(G(i)-1);
     if(RG(i)<0)
         G = 'Vref is too small'
@@ -43,13 +43,13 @@ Greal = 1+Ria./Rreal;
 Gerr = Greal-G;
 
 % Calculate measured voltage
-Vout = Vdif.*Greal;
+Vout = (Vdif.*Greal)/2;
 VOerr = Vout-Vref;
 
 % Generate potentiometer control bytes
 Rctl = Rreal./Rmin;
 
-%% Generate plots
+% Generate plots
 figure
 plot(Rerr)
 title('Potentiometer Resistance Error From Calculated Value');
@@ -67,3 +67,4 @@ plot(VOerr)
 title('Output Voltage - Reference Voltage');
 ylabel('Output Voltage (V)');
 xlabel('Discrete gain steps');
+
