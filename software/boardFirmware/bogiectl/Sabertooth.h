@@ -11,9 +11,10 @@
 void sabertooth_init(USART_data_t *USART_data);
 
 //calculates checksum and sends the command over USART to the sabertooth
-void send_command(uint8_t address, uint8_t opcode, uint8_t data);
+void send_command(uint8_t opcode, uint8_t data);
 
 //send drive motor forward/backwards command, 'speed' represents a percentage between -100% and 100%, format to be determined. Note: actually has 7 bit resolution
 void drive_set(int8_t speed);
+void actuator_set(int8_t speed);
 
 #endif

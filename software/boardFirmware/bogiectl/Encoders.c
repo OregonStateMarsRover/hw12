@@ -7,3 +7,7 @@
 
 #include "Encoders.h"
 
+uint16_t get_actuator_pos()
+{
+	return 0;
+}

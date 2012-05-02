@@ -9,7 +9,12 @@
 #include "Sabertooth.h"
 #include "Encoders.h"
 
+#include "../general/xmegaDrivers/Timer/TC_driver.h"
+#include "../general/xmegaDrivers/Quadrature/qdec_driver.h"
+
  void bogie_controller_init(void);
+
+ void parse_command();
 
  int main(void);
 

@@ -6,14 +6,16 @@
 #define BOGIE_COMMON_H
 
 //CPU frequency for delay.h
-# define F_CPU 1000000UL
+# define F_CPU 2000000UL
 
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
 #include <stdint.h>
 
-#include "usart_driver.h"
+#include "../general/xmegaDrivers/USART/usart_driver.h"
+
+
 
 struct PIDobject 
 {
@@ -29,6 +31,6 @@ typedef struct PIDobject PIDobject;
 
 void usart_send_byte(USART_t *usart, uint8_t data);
 
-uint8_t pid(uint16_t desired, uint16_t actual, PIDobject *pid);
+uint8_t pid(PIDobject *pid, uint16_t desired, uint16_t actual);
 
 #endif

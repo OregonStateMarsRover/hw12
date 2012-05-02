@@ -4,8 +4,16 @@
 
 #include "BogieController.h"
 
+
+//global vars
 USART_data_t USART_motor;
 USART_data_t USART_mainboard;
+
+uint8_t desired_speed = 0;
+uint8_t desired_angle = 0;
+
+PIDobject act_pid;
+
 
 void bogie_controller_init(void)
 {
@@ -74,6 +82,38 @@ void bogie_controller_init(void)
 	/*** Initialize Sabertooth Motor Driver ***/
 	
 	sabertooth_init(&USART_motor);
+	
+	/*** Initialize Quadrature Decoder for Actuator encoder***/
+	
+	QDEC_Total_Setup(&PORTC,                    /*PORT_t * qPort*/
+	                 6,                         /*uint8_t qPin*/
+	                 false,                     /*bool invIO*/
+	                 0,                         /*uint8_t qEvMux*/
+	                 EVSYS_CHMUX_PORTC_PIN6_gc, /*EVSYS_CHMUX_t qPinInput*/
+	                 false,                     /*bool useIndex*/
+	                 EVSYS_QDIRM_00_gc,         /*EVSYS_QDIRM_t qIndexState*/
+	                 &TCC0,                     /*TC0_t * qTimer*/
+	                 TC_EVSEL_CH0_gc,           /*TC_EVSEL_t qEventChannel*/
+	                 ACTUATOR_QUADRATURE_LINECOUNT);   /*uint8_t lineCount*/
+	
+	/*** Initialize Counter for Drive encoder***/
+	
+	PORTC.DIRCLR = PIN4_bm;				  //set PC4/Pin 14 to input
+	PORTC.PIN4CTRL |= PORT_ISC_RISING_gc;  //set PC4/Pin 14 to trigger events on rising edges
+	
+	EVSYS.CH2MUX = EVSYS_CHMUX_PORTC_PIN4_gc;  //set PC4/Pin 14 to input for event channel 2
+	
+	TC1_t *motor_counter = &TCC1;
+	TC1_ConfigClockSource( motor_counter, TC_CLKSEL_EVCH2_gc );  //set TCC1 to count events on channel 2
+	
+	/*** Initialize Timer for PID loop***/
+		
+
+	TC0_t *loop_timer = &TCD0;
+	TC_SetPeriod( loop_timer, 195U); //set period to (2000000/1024)(ticks/sec)/10(loops/sec) = 195 ticks/loop
+	TC0_ConfigClockSource( loop_timer,  TC_CLKSEL_DIV1024_gc);  //set TCD0 to count the system clock. frequency should be 2000000UL ticks/sec
+	TC0_SetOverflowIntLevel( loop_timer, TC_OVFINTLVL_LO_gc);  //set TCD0 to trigger an interrupt when every overflow (100ms)
+
 }
 
 ISR(USARTC0_RXC_vect)
@@ -93,14 +133,30 @@ ISR(USARTD0_DRE_vect)
 }
 
 
+ISR(TCD0_OVF_vect)
+{
+	PORTD.OUTTGL = 0b00110000;
+	drive_set(desired_speed);
+	actuator_set(pid(&act_pid, desired_angle, get_actuator_pos()));
+}
+
+void parse_command()
+{
+	
+}
+
 int main(void)
 {
 	bogie_controller_init();
 	PORTD.OUTSET = 0b00010000;
+
+	act_pid.p= 1;
 	while(1)
 	{
-		_delay_ms(500);
-		PORTD.OUTTGL = 0b00110000;
-		drive_set(0);
+		//wait for communication
+		if(0)
+		{	
+			parse_command();
+		}
 	}
 }

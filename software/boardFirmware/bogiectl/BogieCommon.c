@@ -11,7 +11,7 @@ void usart_send_byte(USART_t *usart, uint8_t data)
 	usart->DATA = data;
 }
 
-uint8_t pid(uint16_t desired, uint16_t actual, PIDobject *pid)
+uint8_t pid(PIDobject *pid, uint16_t desired, uint16_t actual)
 {
 	uint16_t p_error = desired - actual;
 

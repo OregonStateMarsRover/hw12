@@ -94,6 +94,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="avr_compiler.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="BogieCommon.c">
       <SubType>compile</SubType>
     </Compile>
@@ -122,6 +125,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Sabertooth.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TC_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TC_driver.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usart_driver.c">

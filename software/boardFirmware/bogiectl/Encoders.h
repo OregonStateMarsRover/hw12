@@ -7,6 +7,8 @@
 
 #include "BogieCommon.h"
 
+#define ACTUATOR_QUADRATURE_LINECOUNT 2U
+
 //drive encoder functions
 
 uint16_t get_drive_speed();
