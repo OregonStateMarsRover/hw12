@@ -13,7 +13,9 @@
 #include <avr/interrupt.h>
 #include <stdint.h>
 
-#include "../general/xmegaDrivers/USART/usart_driver.h"
+#include "USART.h"
+#include "PacketQueuer.h"
+#include "CommInterface.h"
 
 
 

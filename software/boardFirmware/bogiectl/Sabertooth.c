@@ -4,50 +4,48 @@
 
 #include "Sabertooth.h"
 
-#define MIN -127
 #define MAX 127
 
-#define SABERTOOTH_ADDRESS 130
+#define SABERTOOTH_ADDRESS 128
 #define DRIVE_FORWARD_CMD 0
 #define DRIVE_REVERSE_CMD 1
-#define ACTUATOR_FORWARD_CMD 3
-#define ACTUATOR_REVERSE_CMD 4
+#define ACTUATOR_FORWARD_CMD 4
+#define ACTUATOR_REVERSE_CMD 5
 #define TIMEOUT_CMD 14
 
-USART_data_t *USART_sabertooth;
+USART *port;
 
-void sabertooth_init(USART_data_t *USART_data)
+void sabertooth_init(USART *p)
 {
-	USART_sabertooth = USART_data;
-	uint8_t opcode = TIMEOUT_CMD;
-	uint8_t timeout = 10; //10 * 100ms = 1s
+	port = p;
+	//uint8_t opcode = TIMEOUT_CMD;
+	//uint8_t timeout = 10; //10 * 100ms = 1s
 
-	send_command(opcode, timeout);
+	//send_command(opcode, timeout);
 }
 
 void send_command(uint8_t opcode, uint8_t data)
 {
 	uint8_t address = SABERTOOTH_ADDRESS;
-	USART_TXBuffer_PutByte(USART_sabertooth, address);
-	USART_TXBuffer_PutByte(USART_sabertooth, opcode);
-	USART_TXBuffer_PutByte(USART_sabertooth, data);
-	USART_TXBuffer_PutByte(USART_sabertooth, (address + opcode + data) & 0x7F);
+	USART_WriteByte(port, address);
+	USART_WriteByte(port, opcode);
+	USART_WriteByte(port, data);
+	USART_WriteByte(port, (address + opcode + data) & 0x7F);
 }
 
 void motor_set(int8_t speed, uint8_t forward_cmd, uint8_t reverse_cmd)
 {
 	uint8_t opcode;
 
-	if (speed < MIN) speed = MIN;
-	if (speed > MAX) speed = MAX;
-
 	if (speed >= 0)
 	{
+		if (speed > MAX) speed = MAX;
 		opcode = forward_cmd;
 	}
 	else
 	{
 		speed = -speed;  //flip speed and use 'reverse' command
+		if (speed > MAX) speed = MAX;
 		opcode = reverse_cmd;
 	}
 

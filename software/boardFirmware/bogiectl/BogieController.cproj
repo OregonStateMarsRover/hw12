@@ -109,10 +109,22 @@
     <Compile Include="BogieController.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="CommInterface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CommInterface.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Encoders.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Encoders.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PacketQueuer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PacketQueuer.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="qdec_driver.c">
@@ -121,10 +133,22 @@
     <Compile Include="qdec_driver.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="RingBuffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RingBuffer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Sabertooth.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Sabertooth.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SerialProtocol.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SerialProtocol.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TC_driver.c">
@@ -133,10 +157,10 @@
     <Compile Include="TC_driver.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="usart_driver.c">
+    <Compile Include="USART.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="usart_driver.h">
+    <Compile Include="USART.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

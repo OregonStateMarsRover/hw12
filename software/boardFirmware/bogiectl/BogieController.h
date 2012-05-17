@@ -9,8 +9,20 @@
 #include "Sabertooth.h"
 #include "Encoders.h"
 
-#include "../general/xmegaDrivers/Timer/TC_driver.h"
-#include "../general/xmegaDrivers/Quadrature/qdec_driver.h"
+#include "TC_driver.h"
+#include "qdec_driver.h"
+
+struct BogieControllerData {
+	CommInterface mainboard_inf;
+	USART motor_port;
+	USART mainboard_port;
+	
+	PacketQueue pktQueue;
+	CommPacket queuedPackets[6];
+	unsigned char queuedData[6 * 20];
+};
+
+struct BogieControllerData bogie_controller;
 
  void bogie_controller_init(void);
 

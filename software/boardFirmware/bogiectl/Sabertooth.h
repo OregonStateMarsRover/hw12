@@ -8,7 +8,7 @@
 #include "BogieCommon.h"
 
 //send initialization commands to motor driver.  timeout(watchdog timer) is set.  Could set deadband or ramping as well.
-void sabertooth_init(USART_data_t *USART_data);
+void sabertooth_init(USART *p);
 
 //calculates checksum and sends the command over USART to the sabertooth
 void send_command(uint8_t opcode, uint8_t data);
