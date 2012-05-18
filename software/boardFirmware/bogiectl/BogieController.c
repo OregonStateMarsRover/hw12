@@ -86,7 +86,7 @@ void bogie_controller_init(void)
 	
 	/*** Initialize Sabertooth Motor Driver ***/
 	
-	sabertooth_init(&USART_motor);
+	sabertooth_init(&bogie_controller.motor_port);
 	
 	/*** Initialize Quadrature Decoder for Actuator encoder***/
 	
@@ -128,9 +128,9 @@ void bogie_controller_init(void)
 
 ISR(TCD0_OVF_vect)
 {
-	PORTD.OUTTGL = 0b00110000;
-	drive_set(desired_speed); 
-	actuator_set(pid(&act_pid, desired_angle, get_actuator_pos()));
+// 	PORTD.OUTTGL = 0b00110000;
+// 	drive_set(desired_speed); 
+// 	actuator_set(pid(&act_pid, desired_angle, get_actuator_pos()));
 }
 
 void parse_command(CommPacket *pkt)
@@ -146,6 +146,7 @@ int main(void)
 	act_pid.p= 1;
 	while(1)
 	{
+		uint8_t i = 0;
 		//wait for communication
 		if(CommRXPacketsAvailable(&bogie_controller.mainboard_inf))
 		{	
@@ -153,5 +154,11 @@ int main(void)
 			CommGetPacket(&bogie_controller.mainboard_inf, &pkt, 10);
 			parse_command(&pkt);
 		}
+		//test code that toggles LEDs at 10hz and shifts between 0 and 100 forward speed on motor 1 
+		delay_us(100000);
+		PORTD.OUTTGL = 0b00110000;
+		drive_set(100*(i / 100));
+		i++;
+		if (i > 200) i = 0;
 	}
 }
