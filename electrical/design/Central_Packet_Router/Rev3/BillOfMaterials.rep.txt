@@ -1,0 +1,56 @@
+﻿|-----------------------------------------------------------------------|
+|Bill Of Materials for cpc_rev3.sch on Tue Dec 04 11:22:21 2012         |
+|-----------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Description                  |Value |
+|----+----+---------+--------------+-----------------------------+------|
+|1   |11  |C1-5 C9  |CAP-0603,0.1uF|Capacitor, SMT, 0603         |0.1uF |
+|    |    |C13 C15  |              |                             |      |
+|    |    |C17-18   |              |                             |      |
+|    |    |C21      |              |                             |      |
+|2   |5   |C8 C12   |CAP-0603,100pF|Capacitor, SMT, 0603         |100pF |
+|    |    |C14 C16  |              |                             |      |
+|    |    |C20      |              |                             |      |
+|3   |6   |J1 J11   |HDR_2P1R_100MI|Standard 2 Pin 1 Row .100"   |      |
+|    |    |J105     |L             |Header                       |      |
+|    |    |J107-109 |              |                             |      |
+|4   |1   |J205     |HDR_SHERLOCK_4|Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |Header-4P Vertical           |      |
+|5   |8   |J2-4 J6-7|HDR_SHERLOCK_5|Molex Sherlock 2.0mm         |      |
+|    |    |J12      |P_V           |Header-5P Vertical           |      |
+|    |    |J206-207 |              |                             |      |
+|6   |2   |J13-14   |HEADER46      |FOURTY-SIX PIN HEADER; 100   |      |
+|    |    |         |              |MIL CENTERS                  |      |
+|7   |1   |J200     |K22X-E9P-N    |Header, DE9, Male, Right     |      |
+|    |    |         |              |Angle Through Hole           |      |
+|8   |7   |D20 D102 |LED_0603_GREEN|LED, 0603, Green             |      |
+|    |    |D205 D211|              |                             |      |
+|    |    |D300-302 |              |                             |      |
+|9   |1   |D101     |LED_0603_RED  |LED, 0603, Red               |      |
+|10  |6   |R7 R19   |RES-0603,100  |SURFACE MOUNT RESISTOR 0.031 |100   |
+|    |    |R26 R30  |              |X 0.061 INCHES, 1/10W        |      |
+|    |    |R39 R45  |              |                             |      |
+|11  |8   |R29      |RES-0603,390  |SURFACE MOUNT RESISTOR 0.031 |390   |
+|    |    |R103-104 |              |X 0.061 INCHES, 1/10W        |      |
+|    |    |R209 R217|              |                             |      |
+|    |    |R306-308 |              |                             |      |
+|12  |2   |R101-102 |RES-0603,4.7k |SURFACE MOUNT RESISTOR 0.031 |4.7k  |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|13  |27  |R1-2     |RES-0603,NU   |SURFACE MOUNT RESISTOR 0.031 |NU    |
+|    |    |R8-12    |              |X 0.061 INCHES, 1/10W        |      |
+|    |    |R20-24   |              |                             |      |
+|    |    |R27-28   |              |                             |      |
+|    |    |R31-38   |              |                             |      |
+|    |    |R40-44   |              |                             |      |
+|14  |1   |U8       |SN65HVD32     |TXR,485 Full Duplex          |      |
+|15  |5   |U3 U5-7  |SN65HVD35     |Full Duplex RS-485           |      |
+|    |    |U10      |              |Transceiver w/ Enables, 3.3V,|      |
+|    |    |         |              |SOIC14                       |      |
+|16  |1   |U1       |TRS3221E      |RS-232 Line Driver, 1MBps,   |      |
+|    |    |         |              |3-5.5V VCC                   |      |
+|17  |13  |D3 D5-6  |TVS_MMBZ15VAL |Dual Common Anode TVS Diodes |      |
+|    |    |D11-17   |              |                             |      |
+|    |    |D21-22   |              |                             |      |
+|    |    |D212     |              |                             |      |
+|18  |4   |D1 D7-8  |TVS_NUP2105LT1|Dual Bidirectional TVS Diode,|      |
+|    |    |D18      |G             |350W, SOT-23                 |      |
+|-----------------------------------------------------------------------|

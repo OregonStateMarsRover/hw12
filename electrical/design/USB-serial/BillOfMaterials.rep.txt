@@ -1,0 +1,33 @@
+﻿|-----------------------------------------------------------------------|
+|Bill Of Materials for usb-serial1.sch on Tue Dec 04 11:32:23 2012      |
+|-----------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Description                  |Value |
+|----+----+---------+--------------+-----------------------------+------|
+|1   |8   |C1-8     |CAP-0603,0.1uF|Capacitor, SMT, 0603         |0.1uF |
+|2   |1   |U1       |FT230XS-R     |USB-Serial UART Bridge,      |      |
+|    |    |         |              |SSOP-16                      |      |
+|3   |1   |J7       |HDR_1R4P_100MI|100 mil 4x1 header footprint |      |
+|    |    |         |L             |                             |      |
+|4   |5   |J2-4 J6  |HDR_2P1R_100MI|Standard 2 Pin 1 Row .100"   |      |
+|    |    |J8       |L             |Header                       |      |
+|5   |1   |J5       |HDR_SHERLOCK_5|Molex Sherlock 2.0mm         |      |
+|    |    |         |P_RA          |Header-5P Vertical           |      |
+|6   |1   |J1       |HDR_USB_154-15|USB Header Mini-B Type,      |      |
+|    |    |         |320-E         |Female                       |      |
+|7   |1   |J9       |K22X-E9P-N    |Header, DE9, Male, Right     |      |
+|    |    |         |              |Angle Through Hole           |      |
+|8   |3   |D1-3     |LED_0603_GREEN|LED, 0603, Green             |      |
+|9   |2   |R7-8     |RES-0603,10k  |SURFACE MOUNT RESISTOR 0.031 |10k   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|10  |2   |R1-2     |RES-0603,22   |SURFACE MOUNT RESISTOR 0.031 |22    |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|11  |3   |R4-6     |RES-0603,500  |SURFACE MOUNT RESISTOR 0.031 |500   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|12  |1   |R3       |RES-0603,RT   |SURFACE MOUNT RESISTOR 0.031 |RT    |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|13  |1   |U2       |SN65HVD35     |Full Duplex RS-485           |      |
+|    |    |         |              |Transceiver w/ Enables, 3.3V,|      |
+|    |    |         |              |SOIC14                       |      |
+|14  |1   |U3       |TRS3221E      |RS-232 Line Driver, 1MBps,   |      |
+|    |    |         |              |3-5.5V VCC                   |      |
+|-----------------------------------------------------------------------|

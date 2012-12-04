@@ -1,0 +1,80 @@
+﻿|-----------------------------------------------------------------------|
+|Bill Of Materials for DualMotorDriver.sch on Tue Dec 04 11:28:17 2012  |
+|-----------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Description                  |Value |
+|----+----+---------+--------------+-----------------------------+------|
+|1   |1   |Y1       |ABL-16.000MHZ-|XTAL, THT, 16.000MHz         |16.000|
+|    |    |         |B2,16.000MHz  |                             |MHz   |
+|2   |1   |L1       |ACML-0603-190 |Ferrite Bead, 0603           |      |
+|3   |1   |U1       |ATXMEGA16D4   |ATxmega D4 series MCU - 16k  |      |
+|    |    |         |              |flash                        |      |
+|4   |11  |C1-4 C9  |CAP-0603,0.1uF|Capacitor, SMT, 0603         |0.1uF |
+|    |    |C11-13   |              |                             |      |
+|    |    |C308     |              |                             |      |
+|    |    |C310-311 |              |                             |      |
+|5   |1   |C306     |CAP-0603,1.2nF|Capacitor, SMT, 0603         |1.2nF |
+|6   |4   |C20-23   |CAP-0603,10pF |Capacitor, SMT, 0603         |10pF  |
+|7   |1   |C305     |CAP-0603,15nF |Capacitor, SMT, 0603         |15nF  |
+|8   |2   |C7-8     |CAP-0603,18pF |Capacitor, SMT, 0603         |18pF  |
+|9   |1   |C307     |CAP-0603,1pF  |Capacitor, SMT, 0603         |1pF   |
+|10  |1   |C10      |CAP-0603,1uF  |Capacitor, SMT, 0603         |1uF   |
+|11  |2   |C5-6     |CAP-0603,4.7uF|Capacitor, SMT, 0603         |4.7uF |
+|12  |2   |C309 C312|CAP-1206,10uF |SURFACE MOUNT CAPACITOR 0.062|10uF  |
+|    |    |         |              |X 0.126 INCHES               |      |
+|13  |4   |C16-19   |CAP-1206,4.7uF|SURFACE MOUNT CAPACITOR 0.062|4.7uF |
+|    |    |         |              |X 0.126 INCHES               |      |
+|14  |1   |C304     |CAP-1210,4.7uF|Capacitor, SMT, 1206         |4.7uF |
+|15  |2   |C24-25   |CAP-RADIAL-10X|Radial Electrolytic          |470uF |
+|    |    |         |12.5_3MMP,    |Capacitor, 10x12.5x3mm       |      |
+|    |    |         |470uF         |(DxHxP)                      |      |
+|16  |1   |C303     |CAP-RADIAL-6.3|Radial Electrolytic          |NU    |
+|    |    |         |X7_2.5MMP,NU  |Capacitor, 6.3x7x2.5mm       |      |
+|    |    |         |              |(DxHxP)                      |      |
+|17  |1   |F1       |FUSE_HOLDER_35|Automotive Fuse Holder       |      |
+|    |    |         |44-2          |                             |      |
+|18  |3   |J3       |HDR_2P1R_100MI|Standard 2 Pin 1 Row .100"   |      |
+|    |    |T300-301 |L             |Header                       |      |
+|19  |1   |J1       |HDR_PDI_6_COMP|Header, 6P 2 Row, Through    |      |
+|    |    |         |ACT           |Hole, Shroded, 100x100mil,   |      |
+|    |    |         |              |for ISP-6 Programming        |      |
+|20  |1   |J2       |HDR_SHERLOCK_5|Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |Header-5P Vertical           |      |
+|21  |2   |J5 J300  |HDR_TERMBLOCK_|Screw Terminal Block,        |      |
+|    |    |         |5MM-2P        |Horizontal, 5mm, 2 pos.      |      |
+|22  |1   |U3       |HIP4082IBZ    |Full Bridge NMOS Gate Driver |      |
+|23  |1   |L300     |IND_ELL-6UH470|47uH SMT inductor, shielded, |47uH  |
+|    |    |         |M,47uH        |900mA max DC                 |      |
+|24  |1   |U4       |MAX4372T      |High-side current sense      |      |
+|    |    |         |              |amplifier, 0-28V             |      |
+|25  |4   |X1-4     |PHOLE-#4      |Mounting Hole #4 Screw       |      |
+|26  |4   |Q1-4     |PSMN011-80YS  |N-Ch MOSFET, 80V 67A 11mOhm, |      |
+|    |    |         |              |LFPAK                        |      |
+|27  |4   |R3-4 R7-8|RES-0603,1    |SURFACE MOUNT RESISTOR 0.031 |1     |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|28  |2   |R1 R10   |RES-0603,100k |SURFACE MOUNT RESISTOR 0.031 |100k  |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|29  |1   |R5       |RES-0603,10K  |SURFACE MOUNT RESISTOR 0.031 |10K   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|30  |1   |R305     |RES-0603,10k  |SURFACE MOUNT RESISTOR 0.031 |10k   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|31  |1   |R302     |RES-0603,165k |SURFACE MOUNT RESISTOR 0.031 |165k  |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|32  |2   |R303-304 |RES-0603,53.6k|SURFACE MOUNT RESISTOR 0.031 |53.6k |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|33  |2   |R9 R11   |RES-0603,5k   |SURFACE MOUNT RESISTOR 0.031 |5k    |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|34  |1   |R6       |RES-0603,???  |SURFACE MOUNT RESISTOR 0.031 |???   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|35  |1   |R2       |RES-2512,0.01 |2512 SMD Resistor            |0.01  |
+|36  |5   |D1-4 D300|SCH_CD214A-B36|Diode, Schottky, 3A 60V, SMA |0.7V  |
+|    |    |         |0LF,0.7V      |                             |      |
+|37  |2   |D5-6     |SCH_PMEG6002EJ|Schottky Diode, 60V, 2.75A,  |      |
+|    |    |         |              |SOD-323F                     |      |
+|38  |1   |U2       |SN65HVD32     |TXR,485 Full Duplex          |      |
+|39  |1   |S1       |SW_SPST_SWT6-E|Tactile Pushbutton, SPST, 6mm|      |
+|    |    |         |5M            |                             |      |
+|40  |1   |U301     |TPS5401       |Integrated Buck Converter,   |      |
+|    |    |         |              |0.5A Max, 42V In Max         |      |
+|41  |1   |U302     |TPS79333      |3.3V LDO, 200mA Maximum      |      |
+|    |    |         |              |current                      |      |
+|-----------------------------------------------------------------------|

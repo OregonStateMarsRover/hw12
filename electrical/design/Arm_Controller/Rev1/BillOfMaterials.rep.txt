@@ -1,0 +1,111 @@
+﻿|-----------------------------------------------------------------------|
+|Bill Of Materials for armctl1.sch on Tue Nov 27 16:15:26 2012          |
+|-----------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Description                  |Value |
+|----+----+---------+--------------+-----------------------------+------|
+|1   |1   |U205     |74HC1G14GV    |Schmitt Trigger Inverter     |      |
+|2   |1   |U201     |74LVC2G07_DCK |Dual Open Drain Schmitt      |      |
+|    |    |         |              |Buffers, SC-70-6             |      |
+|3   |1   |Y100     |ABM2-16.000MHZ|Crystal, 16.000MHz, SMD      |16.000|
+|    |    |         |-D4Y-T,       |                             |MHz   |
+|    |    |         |16.000MHz     |                             |      |
+|4   |1   |L100     |ACML-0603-190 |Ferrite Bead, 0603           |      |
+|5   |1   |U100     |ATXMEGA16D4   |ATxmega D4 series MCU - 16k  |      |
+|    |    |         |              |flash                        |      |
+|6   |15  |C101-105 |CAP-0603,0.1uF|Capacitor, SMT, 0603         |0.1uF |
+|    |    |C200-202 |              |                             |      |
+|    |    |C206-209 |              |                             |      |
+|    |    |C308     |              |                             |      |
+|    |    |C310-311 |              |                             |      |
+|7   |1   |C306     |CAP-0603,1.2nF|Capacitor, SMT, 0603         |1.2nF |
+|8   |1   |C203     |CAP-0603,100pF|Capacitor, SMT, 0603         |100pF |
+|9   |2   |C212-213 |CAP-0603,10nF |Capacitor, SMT, 0603         |10nF  |
+|10  |1   |C305     |CAP-0603,15nF |Capacitor, SMT, 0603         |15nF  |
+|11  |2   |C106-107 |CAP-0603,18pF |Capacitor, SMT, 0603         |18pF  |
+|12  |4   |C204-205 |CAP-0603,1nF  |Capacitor, SMT, 0603         |1nF   |
+|    |    |C210-211 |              |                             |      |
+|13  |1   |C307     |CAP-0603,1pF  |Capacitor, SMT, 0603         |1pF   |
+|14  |1   |C300     |CAP-0603,1uF  |Capacitor, SMT, 0603         |1uF   |
+|15  |2   |C108-109 |CAP-0603,4.7uF|Capacitor, SMT, 0603         |4.7uF |
+|16  |1   |C100     |CAP-0805,10uF |SURFACE MOUNT CAPACITOR 0.048|10uF  |
+|    |    |         |              |X 0.079 INCHES               |      |
+|17  |2   |C309 C312|CAP-1206,10uF |SURFACE MOUNT CAPACITOR 0.062|10uF  |
+|    |    |         |              |X 0.126 INCHES               |      |
+|18  |1   |C304     |CAP-1210,4.7uF|Capacitor, SMT, 1206         |4.7uF |
+|19  |2   |C301-302 |CAP-RADIAL-10X|Radial Electrolytic          |330uF |
+|    |    |         |12.5_3MMP,    |Capacitor, 10x12.5x3mm       |      |
+|    |    |         |330uF         |(DxHxP)                      |      |
+|20  |1   |C303     |CAP-RADIAL-6.3|Radial Electrolytic          |NU    |
+|    |    |         |X7_2.5MMP,NU  |Capacitor, 6.3x7x2.5mm       |      |
+|    |    |         |              |(DxHxP)                      |      |
+|21  |1   |F300     |FUSE_HOLDER_35|Automotive Fuse Holder       |      |
+|    |    |         |44-2          |                             |      |
+|22  |6   |J100     |HDR_2P1R_100MI|Standard 2 Pin 1 Row .100"   |      |
+|    |    |T200-202 |L             |Header                       |      |
+|    |    |T300-301 |              |                             |      |
+|23  |1   |J102     |HDR_PDI_6_COMP|Header, 6P 2 Row, Through    |      |
+|    |    |         |ACT           |Hole, Shroded, 100x100mil,   |      |
+|    |    |         |              |for ISP-6 Programming        |      |
+|24  |2   |J201 J205|HDR_SHERLOCK_3|Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |Header-3P Vertical           |      |
+|25  |1   |J202     |HDR_SHERLOCK_5|Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |Header-5P Vertical           |      |
+|26  |2   |J203-204 |HDR_SHERLOCK_6|Header, Molex Sherlock,      |      |
+|    |    |         |P_V           |2.0mm, 6 Pin, Vertical       |      |
+|27  |2   |J200 J206|HDR_SHERLOCK_9|Header, Molex Sherlock,      |      |
+|    |    |         |P_V           |2.0mm, 9 Pin, Vertical       |      |
+|28  |2   |J300-301 |HDR_TERMBLOCK_|Screw Terminal Block,        |      |
+|    |    |         |5MM-2P        |Horizontal, 5mm, 2 pos.      |      |
+|29  |1   |L300     |IND_ELL-6UH470|47uH SMT inductor, shielded, |47uH  |
+|    |    |         |M,47uH        |900mA max DC                 |      |
+|30  |4   |D100     |LED_0603_GREEN|LED, 0603, Green             |      |
+|    |    |D301-303 |              |                             |      |
+|31  |1   |D101     |LED_0603_RED  |LED, 0603, Red               |      |
+|32  |1   |Z100     |LM4040D25DBZR,|Precision 2.5V Shunt         |2.5V  |
+|    |    |         |2.5V          |Reference                    |      |
+|33  |1   |U206     |MAX3293       |RS-485 Transmitter, 250kbps, |      |
+|    |    |         |              |SOT23-6                      |      |
+|34  |2   |U203-204 |MAX3281E      |Single RS-485 Receiver,      |      |
+|    |    |         |              |52Mbps, SOT23-6              |      |
+|35  |1   |U300     |MAX4372T      |High-side current sense      |      |
+|    |    |         |              |amplifier, 0-28V             |      |
+|36  |4   |X1-4     |PHOLE-#4      |Mounting Hole #4 Screw       |      |
+|37  |1   |R203     |RES-0603,100  |SURFACE MOUNT RESISTOR 0.031 |100   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|38  |9   |R100     |RES-0603,10k  |SURFACE MOUNT RESISTOR 0.031 |10k   |
+|    |    |R200-202 |              |X 0.061 INCHES, 1/10W        |      |
+|    |    |R204-207 |              |                             |      |
+|    |    |R305     |              |                             |      |
+|39  |2   |R208-209 |RES-0603,120  |SURFACE MOUNT RESISTOR 0.031 |120   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|40  |1   |R302     |RES-0603,165k |SURFACE MOUNT RESISTOR 0.031 |165k  |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|41  |1   |R106     |RES-0603,1k   |SURFACE MOUNT RESISTOR 0.031 |1k    |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|42  |3   |R102-103 |RES-0603,390  |SURFACE MOUNT RESISTOR 0.031 |390   |
+|    |    |R308     |              |X 0.061 INCHES, 1/10W        |      |
+|43  |2   |R303-304 |RES-0603,53.6k|SURFACE MOUNT RESISTOR 0.031 |53.6k |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|44  |1   |R306     |RES-0603,6.2k |SURFACE MOUNT RESISTOR 0.031 |6.2k  |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|45  |1   |R307     |RES-0603,860  |SURFACE MOUNT RESISTOR 0.031 |860   |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|46  |1   |R101     |RES-0603,NU   |SURFACE MOUNT RESISTOR 0.031 |NU    |
+|    |    |         |              |X 0.061 INCHES, 1/10W        |      |
+|47  |1   |R300     |RES-2512,0.01 |2512 SMD Resistor            |0.01  |
+|48  |1   |D300     |SCH_CD214A-B36|Diode, Schottky, 3A 60V, SMA |0.7V  |
+|    |    |         |0LF,0.7V      |                             |      |
+|49  |1   |U202     |SN65HVD35     |Full Duplex RS-485           |      |
+|    |    |         |              |Transceiver w/ Enables, 3.3V,|      |
+|    |    |         |              |SOIC14                       |      |
+|50  |1   |U200     |SN74AHCT1G125_|Single TTL Buffer, SC-70-5   |      |
+|    |    |         |DCK           |                             |      |
+|51  |1   |S100     |SW_SPST_SWT6-E|Tactile Pushbutton, SPST, 6mm|      |
+|    |    |         |5M            |                             |      |
+|52  |1   |U301     |TPS5401       |Integrated Buck Converter,   |      |
+|    |    |         |              |0.5A Max, 42V In Max         |      |
+|53  |1   |U302     |TPS79333      |3.3V LDO, 200mA Maximum      |      |
+|    |    |         |              |current                      |      |
+|54  |6   |D200-205 |TVS_NUP2105LT1|Dual Bidirectional TVS Diode,|      |
+|    |    |         |G             |350W, SOT-23                 |      |
+|-----------------------------------------------------------------------|

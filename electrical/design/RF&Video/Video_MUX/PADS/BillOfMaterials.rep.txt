@@ -1,0 +1,137 @@
+﻿|-----------------------------------------------------------------------|
+|Bill Of Materials for videoMux.sch on Tue Nov 27 16:26:55 2012         |
+|-----------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Description                  |Value |
+|----+----+---------+--------------+-----------------------------+------|
+|1   |6   |J1-4 J6-7|142146-75     |SMB, Right Angle             |      |
+|2   |1   |Y1       |ABM2-16.000MHZ|Crystal                      |      |
+|    |    |         |-D4Y-T        |                             |      |
+|3   |1   |U33      |ATXMEGA128A3  |MCU, 8/16b,AVR,              |      |
+|    |    |         |              |ATXMega128A3AU               |      |
+|4   |1   |D28      |B2100-13      |High Voltage Schottky Diode  |      |
+|5   |45  |D2-12    |B72500D0050A06|Bidirectional TVS Diode      |      |
+|    |    |D14-15   |0             |                             |      |
+|    |    |D18      |              |                             |      |
+|    |    |D20-27   |              |                             |      |
+|    |    |D29-51   |              |                             |      |
+|6   |1   |D1       |BAS40         |Schottky Diode               |      |
+|7   |1   |C34      |CAP-0402,     |Capacitor                    |1000pF|
+|    |    |         |1000pF,2%     |                             |      |
+|8   |1   |C39      |CAP-0402,     |Capacitor                    |1500pF|
+|    |    |         |1500pF,5%     |                             |      |
+|9   |1   |C35      |CAP-0402,     |Capacitor                    |360pF |
+|    |    |         |360pF,5%      |                             |      |
+|10  |1   |C40      |CAP-0402,     |Capacitor                    |620pF |
+|    |    |         |620pF,5%      |                             |      |
+|11  |1   |C36      |CAP-0402,     |Capacitor                    |680pF |
+|    |    |         |680pF,2%      |                             |      |
+|12  |40  |C1-16    |CAP-0603,     |Capacitor                    |0.1uF |
+|    |    |C18-22   |0.1uF,10%     |                             |      |
+|    |    |C24-25   |              |                             |      |
+|    |    |C28-30   |              |                             |      |
+|    |    |C33      |              |                             |      |
+|    |    |C37-38   |              |                             |      |
+|    |    |C42-48   |              |                             |      |
+|    |    |C52 C105 |              |                             |      |
+|    |    |C111 C116|              |                             |      |
+|13  |2   |C103 C109|CAP-0603,10nF,|Capacitor                    |10nF  |
+|    |    |         |5%            |                             |      |
+|14  |1   |C100     |CAP-0603,     |Capacitor                    |2.2nF |
+|    |    |         |2.2nF,5%      |                             |      |
+|15  |3   |C49-51   |CAP-0603,27pF,|Capacitor                    |27pF  |
+|    |    |         |5%            |                             |      |
+|16  |2   |C17 C23  |CAP-0805,10uF,|Capacitor                    |10uF  |
+|    |    |         |10%           |                             |      |
+|17  |4   |C26-27   |CAP-0805,1uF, |Capacitor                    |1uF   |
+|    |    |C31-32   |10%           |                             |      |
+|18  |7   |C53-54   |CAP-1206,10uF,|Capacitor                    |10uF  |
+|    |    |C98-99   |10%           |                             |      |
+|    |    |C104 C110|              |                             |      |
+|    |    |C113     |              |                             |      |
+|19  |1   |C102     |CAP-2917,     |Capacitor                    |220uF |
+|    |    |         |220uF,10%     |                             |      |
+|20  |1   |C41      |CAP-RADIAL-6.3|Radial Electrolytic          |100uF |
+|    |    |         |X7_2.5MMP,    |Capacitor, 6.3x7x2.5mm       |      |
+|    |    |         |100uF         |(DxHxP)                      |      |
+|21  |1   |U1       |CD4051BM      |8:1 Analog Multiplexer       |      |
+|22  |12  |J5 J8-12 |COAX_PAD      |Coaxial Test Point           |      |
+|    |    |J20-21   |              |                             |      |
+|    |    |J26      |              |                             |      |
+|    |    |J29-31   |              |                             |      |
+|23  |5   |J15      |HDR_2P1R_100MI|Standard 2 Pin 1 Row .100"   |      |
+|    |    |J17-18   |L             |Header                       |      |
+|    |    |J24-25   |              |                             |      |
+|24  |4   |J13 J19  |HDR_3P1R_100MI|Header, 3P1R, 100mil         |      |
+|    |    |J32-33   |L             |                             |      |
+|25  |2   |J14 J27  |HDR_8P1R_100MI|Header, 8P1R, 100mil         |      |
+|    |    |         |L             |                             |      |
+|26  |1   |J22      |HDR_MINIFITJR_|Minifit Jr Header, 2P 2R     |      |
+|    |    |         |2R2P-RA       |Right Angle                  |      |
+|27  |1   |J28      |HDR_PDI_6     |Header, 6P 2 Row, Through    |      |
+|    |    |         |              |Hole, Shroded, 100x100mil,   |      |
+|    |    |         |              |for ISP-6 Programming        |      |
+|28  |2   |J16 J23  |HDR_SHERLOCK_3|Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |Header-3P Vertical           |      |
+|29  |1   |J204     |HDR_SHERLOCK_5|Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |Header-5P Vertical           |      |
+|30  |4   |X1-4     |HOLE_4-40     |Hole for 4-40 screw          |      |
+|31  |1   |U15      |INA134        |Balanced Audio Receiver      |      |
+|32  |1   |L2       |IND0402,1.2uH,|Inductor                     |1.2uH |
+|    |    |         |10%           |                             |      |
+|33  |1   |L1       |IND0402,1.5uH,|Inductor                     |1.5uH |
+|    |    |         |10%           |                             |      |
+|34  |1   |D19      |LED-0805_DIALI|LED, 0805, Yellow            |      |
+|    |    |         |GHT_598-8150-1|                             |      |
+|    |    |         |07F           |                             |      |
+|35  |2   |D13 D17  |LED-0805_DIALI|LED                          |      |
+|    |    |         |GHT_598-8170-1|                             |      |
+|    |    |         |07F           |                             |      |
+|36  |1   |U13      |LM4040A30I    |Voltage Reference            |      |
+|37  |1   |U29      |LT1054CDW     |Charge Pump                  |      |
+|38  |2   |U2 U9    |MAX864        |Dual Charge Pump             |      |
+|39  |1   |U10      |MCP4011,2.1K  |64 step digital              |2.1K  |
+|    |    |         |              |potentiometer, 4MHz -3dB     |      |
+|    |    |         |              |bandwidth                    |      |
+|40  |6   |U3-7 U14 |OPA693        |Fixed Gain Video Buffer      |      |
+|41  |1   |U32      |REG103GA-5    |LDO Voltage Regulator        |      |
+|42  |1   |U31      |REG103GA-3.3  |LDO Voltage Regulator        |      |
+|43  |1   |R107     |RES-0603,102K,|Resistor                     |102K  |
+|    |    |         |1%            |                             |      |
+|44  |2   |R109 R116|RES-0603,150, |Resistor                     |150   |
+|    |    |         |1%            |                             |      |
+|45  |1   |R22      |RES-0603,200K,|Resistor                     |200K  |
+|    |    |         |5%            |                             |      |
+|46  |1   |R106     |RES-0603,20K, |Resistor                     |20K   |
+|    |    |         |1%            |                             |      |
+|47  |1   |R18      |RES-0603,2K,5%|Resistor                     |2K    |
+|48  |1   |R98      |RES-0603,300, |Resistor                     |300   |
+|    |    |         |1%            |                             |      |
+|49  |1   |R115     |RES-0603,324, |Resistor                     |324   |
+|    |    |         |1%            |                             |      |
+|50  |11  |R26 R28  |RES-0603,4.7K,|Resistor                     |4.7K  |
+|    |    |R38      |5%            |                             |      |
+|    |    |R41-43   |              |                             |      |
+|    |    |R48-49   |              |                             |      |
+|    |    |R119-121 |              |                             |      |
+|51  |9   |R11-15   |RES-0603,75,1%|Resistor                     |75    |
+|    |    |R19 R23  |              |                             |      |
+|    |    |R25 R27  |              |                             |      |
+|52  |6   |R20-21   |RES-0603,???  |Resistor                     |???   |
+|    |    |R34-35   |              |                             |      |
+|    |    |R100 R102|              |                             |      |
+|53  |26  |R1-10    |RES-0603,OPT-0|Resistor                     |OPT-0 |
+|    |    |R16-17   |              |                             |      |
+|    |    |R24      |              |                             |      |
+|    |    |R29-33   |              |                             |      |
+|    |    |R36-37   |              |                             |      |
+|    |    |R39-40   |              |                             |      |
+|    |    |R45-47   |              |                             |      |
+|    |    |R108     |              |                             |      |
+|54  |1   |R44      |RES-0603,     |Resistor                     |OPT-10|
+|    |    |         |OPT-100       |                             |0     |
+|55  |1   |U35      |SN65HVD35     |RS-485 Transceiver           |      |
+|56  |1   |SW1      |SW_SKHHAMA010 |Tactile Push-button          |      |
+|57  |2   |U8 U12   |THS4011CD     |High Frequency OP-AMP        |      |
+|58  |1   |U11      |TLC548CD      |Single Channel ADC           |      |
+|59  |6   |TPNT1-6  |TPNT          |Test point with via          |      |
+|-----------------------------------------------------------------------|

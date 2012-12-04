@@ -1,0 +1,106 @@
+﻿|--------------------------------------------------------------------------------------|
+|Bill Of Materials for bogiectl3.sch on Sun Nov 25 15:34:11 2012                       |
+|--------------------------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Manufacturer  |Description                  |Value |
+|----+----+---------+--------------+--------------+-----------------------------+------|
+|1   |1   |U201     |74LVC2G07_DCK |              |Dual Open Drain Schmitt      |      |
+|    |    |         |              |              |Buffers, SC-70-6             |      |
+|2   |2   |U400-401 |74LVC2G34_DCK |              |Dual Schmitt Buffer, 5V      |      |
+|    |    |         |              |              |Tolerant, SC-70-6            |      |
+|3   |1   |Y100     |ABM2-16.000MHZ|Abracon       |Crystal, 16.000MHz, SMD      |16.000|
+|    |    |         |-D4Y-T,       |              |                             |MHz   |
+|    |    |         |16.000MHz     |              |                             |      |
+|4   |1   |L100     |ACML-0603-190 |              |Ferrite Bead, 0603           |      |
+|5   |1   |U100     |ATXMEGA16D4   |              |ATxmega D4 series MCU - 16k  |      |
+|    |    |         |              |              |flash                        |      |
+|6   |2   |C400-401 |CAP-0603,0.01u|              |Capacitor, SMT, 0603         |0.01u |
+|7   |13  |C101-105 |CAP-0603,0.1uF|              |Capacitor, SMT, 0603         |0.1uF |
+|    |    |C200-202 |              |              |                             |      |
+|    |    |C308     |              |              |                             |      |
+|    |    |C310-311 |              |              |                             |      |
+|    |    |C402-403 |              |              |                             |      |
+|8   |1   |C306     |CAP-0603,1.2nF|              |Capacitor, SMT, 0603         |1.2nF |
+|9   |1   |C203     |CAP-0603,100pF|              |Capacitor, SMT, 0603         |100pF |
+|10  |1   |C305     |CAP-0603,15nF |              |Capacitor, SMT, 0603         |15nF  |
+|11  |2   |C106-107 |CAP-0603,18pF |              |Capacitor, SMT, 0603         |18pF  |
+|12  |2   |C204-205 |CAP-0603,1nF  |              |Capacitor, SMT, 0603         |1nF   |
+|13  |1   |C307     |CAP-0603,1pF  |              |Capacitor, SMT, 0603         |1pF   |
+|14  |1   |C300     |CAP-0603,1uF  |              |Capacitor, SMT, 0603         |1uF   |
+|15  |2   |C108-109 |CAP-0603,4.7uF|              |Capacitor, SMT, 0603         |4.7uF |
+|16  |1   |C100     |CAP-0805,10uF |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.048|10uF  |
+|    |    |         |              |STD.          |X 0.079 INCHES               |      |
+|17  |2   |C309 C312|CAP-1206,10uF |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.062|10uF  |
+|    |    |         |              |STD.          |X 0.126 INCHES               |      |
+|18  |1   |C304     |CAP-1210,4.7uF|              |Capacitor, SMT, 1206         |4.7uF |
+|19  |2   |C301-302 |CAP-RADIAL-10X|              |Radial Electrolytic          |330uF |
+|    |    |         |12.5_3MMP,    |              |Capacitor, 10x12.5x3mm       |      |
+|    |    |         |330uF         |              |(DxHxP)                      |      |
+|20  |1   |C303     |CAP-RADIAL-6.3|              |Radial Electrolytic          |NU    |
+|    |    |         |X7_2.5MMP,NU  |              |Capacitor, 6.3x7x2.5mm       |      |
+|    |    |         |              |              |(DxHxP)                      |      |
+|21  |1   |F300     |FUSE_HOLDER_35|Key Electric  |Automotive Fuse Holder       |      |
+|    |    |         |44-2          |Co            |                             |      |
+|22  |8   |J100     |HDR_2P1R_100MI|3M, Various   |Standard 2 Pin 1 Row .100"   |      |
+|    |    |T200-202 |L             |              |Header                       |      |
+|    |    |T300-301 |              |              |                             |      |
+|    |    |T400-401 |              |              |                             |      |
+|23  |1   |J102     |HDR_PDI_6_COMP|Molex         |Header, 6P 2 Row, Through    |      |
+|    |    |         |ACT           |              |Hole, Shroded, 100x100mil,   |      |
+|    |    |         |              |              |for ISP-6 Programming        |      |
+|24  |1   |J201     |HDR_SHERLOCK_3|              |Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |              |Header-3P Vertical           |      |
+|25  |2   |J400-401 |HDR_SHERLOCK_4|              |Molex Sherlock 2.0mm         |      |
+|    |    |         |P_V           |              |Header-4P Vertical           |      |
+|26  |3   |J200     |HDR_SHERLOCK_5|              |Molex Sherlock 2.0mm         |      |
+|    |    |J202-203 |P_V           |              |Header-5P Vertical           |      |
+|27  |2   |J300-301 |HDR_TERMBLOCK_|              |Screw Terminal Block,        |      |
+|    |    |         |5MM-2P        |              |Horizontal, 5mm, 2 pos.      |      |
+|28  |1   |L300     |IND_ELL-6UH470|              |47uH SMT inductor, shielded, |47uH  |
+|    |    |         |M,47uH        |              |900mA max DC                 |      |
+|29  |4   |D100     |LED_0603_GREEN|Lite-On       |LED, 0603, Green             |      |
+|    |    |D301-303 |              |              |                             |      |
+|30  |1   |D101     |LED_0603_RED  |Lite-On       |LED, 0603, Red               |      |
+|31  |1   |Z100     |LM4040D25DBZR,|              |Precision 2.5V Shunt         |2.5V  |
+|    |    |         |2.5V          |              |Reference                    |      |
+|32  |1   |U300     |MAX4372T      |              |High-side current sense      |      |
+|    |    |         |              |              |amplifier, 0-28V             |      |
+|33  |4   |X1-4     |PHOLE-#4      |              |Mounting Hole #4 Screw       |      |
+|34  |1   |R203     |RES-0603,100  |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |100   |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|35  |2   |R402-403 |RES-0603,100k |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |100k  |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|36  |7   |R100     |RES-0603,10k  |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |10k   |
+|    |    |R200-202 |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|    |    |R204-205 |              |              |                             |      |
+|    |    |R305     |              |              |                             |      |
+|37  |1   |R302     |RES-0603,165k |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |165k  |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|38  |3   |R106     |RES-0603,1k   |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |1k    |
+|    |    |R400-401 |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|39  |3   |R102-103 |RES-0603,390  |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |390   |
+|    |    |R308     |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|40  |2   |R303-304 |RES-0603,53.6k|IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |53.6k |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|41  |1   |R306     |RES-0603,6.2k |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |6.2k  |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|42  |1   |R307     |RES-0603,860  |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |860   |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|43  |1   |R101     |RES-0603,NU   |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |NU    |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |      |
+|44  |1   |R300     |RES-2512,0.01 |              |2512 SMD Resistor            |0.01  |
+|45  |1   |D300     |SCH_CD214A-B36|Bourns        |Diode, Schottky, 3A 60V, SMA |0.7V  |
+|    |    |         |0LF,0.7V      |              |                             |      |
+|46  |1   |U202     |SN65HVD35     |              |Full Duplex RS-485           |      |
+|    |    |         |              |              |Transceiver w/ Enables, 3.3V,|      |
+|    |    |         |              |              |SOIC14                       |      |
+|47  |1   |U200     |SN74AHCT1G125_|              |Single TTL Buffer, SC-70-5   |      |
+|    |    |         |DCK           |              |                             |      |
+|48  |1   |S100     |SW_SPST_SWT6-E|              |Tactile Pushbutton, SPST, 6mm|      |
+|    |    |         |5M            |              |                             |      |
+|49  |1   |U301     |TPS5401       |              |Integrated Buck Converter,   |      |
+|    |    |         |              |              |0.5A Max, 42V In Max         |      |
+|50  |1   |U302     |TPS79333      |              |3.3V LDO, 200mA Maximum      |      |
+|    |    |         |              |              |current                      |      |
+|51  |7   |D200-204 |TVS_NUP2105LT1|              |Dual Bidirectional TVS Diode,|      |
+|    |    |D400-401 |G             |              |350W, SOT-23                 |      |
+|--------------------------------------------------------------------------------------|
