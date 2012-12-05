@@ -3,18 +3,18 @@
 |-----------------------------------------------------------------------|
 |Item|Qty |Reference|Part Name     |Description                  |Value |
 |----+----+---------+--------------+-----------------------------+------|
-|1   |1   |J2       |142146-75     |SMB, Right Angle             |      |
-|2   |1   |U33      |74LVC1G126GV  |Buffer, Tri-State, Single    |      |
-|3   |1   |Y1       |ABM2-16.000MHZ|Crystal                      |      |
+|1   |1   |J2       |142146-75     |SMB, Right Angle             |      |No
+|2   |1   |U33      |74LVC1G126GV  |Buffer, Tri-State, Single    |      |No
+|3   |1   |Y1       |ABM2-16.000MHZ|Crystal                      |      |Yes
 |    |    |         |-D4Y-T        |                             |      |
-|4   |1   |M1       |AOM-6545P-R   |                             |      |
-|5   |1   |U4       |ATXMEGA128A3  |MCU, 8/16b,AVR,              |      |
+|4   |1   |M1       |AOM-6545P-R   |                             |      |Yes
+|5   |1   |U4       |ATXMEGA128A3  |MCU, 8/16b,AVR,              |      |Yes
 |    |    |         |              |ATXMega128A3AU               |      |
-|6   |21  |D1 D3-12 |B72500D0050A06|Bidirectional TVS Diode      |      |
+|6   |21  |D1 D3-12 |B72500D0050A06|Bidirectional TVS Diode      |      |Yes
 |    |    |D14-16   |0             |                             |      |
 |    |    |D18-24   |              |                             |      |
-|7   |1   |U3       |BMP085        |Barometric Pressure Sensor   |      |
-|8   |16  |C3-6     |CAP-0603,     |Capacitor                    |0.1uF |
+|7   |1   |U3       |BMP085        |Barometric Pressure Sensor   |      |No
+|8   |16  |C3-6     |CAP-0603,     |Capacitor                    |0.1uF |No
 |    |    |C15-16   |0.1uF,10%     |                             |      |
 |    |    |C24 C33  |              |                             |      |
 |    |    |C43-47   |              |                             |      |
@@ -39,8 +39,8 @@
 |    |    |C113     |10%           |                             |      |
 |17  |3   |C14 C18  |CAP_RAD_10X16M|Capacitor                    |470uF |
 |    |    |C21      |M,470uF,20%   |                             |      |
-|18  |1   |L1       |CHOKE,39mH,5% |Choke, Sheilded              |39mH  |
-|19  |1   |U5       |DRV135        |Balanced Audio Line Driver   |      |
+|18  |1   |L1       |CHOKE,39mH,5% |Choke, Sheilded              |39mH  |No
+|19  |1   |U5       |DRV135        |Balanced Audio Line Driver   |      |Yes
 |20  |1   |J1       |FFC_6200097   |                             |      |
 |21  |1   |J5       |HDR_MINIFIT_2R|Header, 4 Pin 2 Row Minifit  |      |
 |    |    |         |4P_RA         |4.2mm Pitch, Right Angle     |      |
@@ -52,8 +52,8 @@
 |24  |1   |J204     |HDR_SHERLOCK_5|Molex Sherlock 2.0mm         |      |
 |    |    |         |P_V           |Header-5P Vertical           |      |
 |25  |1   |J4       |HDR_SPOX_3P_V |Header, SPOX, 3P1R           |      |
-|26  |1   |U35      |KXUD9-4100    |3 Axis Differential          |      |
-|    |    |         |              |Accelerometer                |      |
+|26  |1   |U35      |KXUD9-4100    |3 Axis Differential          |      |No
+|    |    |         |              |Accertlerometer                |      |
 |27  |3   |D2 D25   |LED-0805_DIALI|LED, 0805, Red               |      |
 |    |    |D28      |GHT_598-8110-1|                             |      |
 |    |    |         |07F           |                             |      |
@@ -61,10 +61,10 @@
 |    |    |         |GHT_598-8170-1|                             |      |
 |    |    |         |07F           |                             |      |
 |29  |1   |U8       |LM3480IM3X-5.0|Linear Regulator             |      |
-|30  |1   |U7       |MAX864        |Dual Charge Pump             |      |
-|31  |1   |R5       |POT,100K,10%  |Trimmer Pot, Multiturn       |100K  |
-|32  |1   |U32      |REG103GA-5    |LDO Voltage Regulator        |      |
-|33  |1   |U31      |REG103GA-3.3  |LDO Voltage Regulator        |      |
+|30  |1   |U7       |MAX864        |Dual Charge Pump             |      |No
+|31  |1   |R5       |POT,100K,10%  |Trimmer Pot, Multiturn       |100K  |Yes
+|32  |1   |U32      |REG103GA-5    |LDO Voltage Regulator        |      |Yes
+|33  |1   |U31      |REG103GA-3.3  |LDO Voltage Regulator        |      |No
 |34  |4   |R3 R14   |RES-0603,10K, |Resistor                     |10K   |
 |    |    |R22-23   |1%            |                             |      |
 |35  |4   |R11      |RES-0603,150, |Resistor                     |150   |
@@ -82,6 +82,6 @@
 |40  |3   |R7-9     |RES-0603,OPT-0|Resistor                     |OPT-0 |
 |41  |1   |U2       |SN65HVD35     |RS-485 Transceiver           |      |
 |42  |1   |SW1      |SW_SKHHAMA010 |Tactile Push-button          |      |
-|43  |1   |U1       |TL082         |Dual Op-Amp                  |      |
+|43  |1   |U1       |TL082         |Dual Op-Amp                  |      |Yes
 |44  |21  |TPNT1-21 |TPNT          |Test point with via          |      |
 |-----------------------------------------------------------------------|
