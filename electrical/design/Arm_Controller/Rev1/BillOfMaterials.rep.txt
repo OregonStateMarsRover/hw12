@@ -3,15 +3,15 @@
 |-----------------------------------------------------------------------|
 |Item|Qty |Reference|Part Name     |Description                  |Value |
 |----+----+---------+--------------+-----------------------------+------|
-|1   |1   |U205     |74HC1G14GV    |Schmitt Trigger Inverter     |      |
-|2   |1   |U201     |74LVC2G07_DCK |Dual Open Drain Schmitt      |      |
+|1   |1   |U205     |74HC1G14GV    |Schmitt Trigger Inverter     |      | No
+|2   |1   |U201     |74LVC2G07_DCK |Dual Open Drain Schmitt      |      | Ordered
 |    |    |         |              |Buffers, SC-70-6             |      |
-|3   |1   |Y100     |ABM2-16.000MHZ|Crystal, 16.000MHz, SMD      |16.000|
+|3   |1   |Y100     |ABM2-16.000MHZ|Crystal, 16.000MHz, SMD      |16.000| Yes
 |    |    |         |-D4Y-T,       |                             |MHz   |
 |    |    |         |16.000MHz     |                             |      |
-|4   |1   |L100     |ACML-0603-190 |Ferrite Bead, 0603           |      |
-|5   |1   |U100     |ATXMEGA16D4   |ATxmega D4 series MCU - 16k  |      |
-|    |    |         |              |flash                        |      |
+|4   |1   |L100     |ACML-0603-190 |Ferrite Bead, 0603           |      | Ordered
+|5   |1   |U100     |ATXMEGA16D4   |ATxmega D4 series MCU - 16k  |      | Yes
+|    |    |         |              |flash                        |      | 
 |6   |15  |C101-105 |CAP-0603,0.1uF|Capacitor, SMT, 0603         |0.1uF |
 |    |    |C200-202 |              |                             |      |
 |    |    |C206-209 |              |                             |      |
@@ -63,11 +63,11 @@
 |31  |1   |D101     |LED_0603_RED  |LED, 0603, Red               |      |
 |32  |1   |Z100     |LM4040D25DBZR,|Precision 2.5V Shunt         |2.5V  |
 |    |    |         |2.5V          |Reference                    |      |
-|33  |1   |U206     |MAX3293       |RS-485 Transmitter, 250kbps, |      |
+|33  |1   |U206     |MAX3293       |RS-485 Transmitter, 250kbps, |      | No
 |    |    |         |              |SOT23-6                      |      |
-|34  |2   |U203-204 |MAX3281E      |Single RS-485 Receiver,      |      |
+|34  |2   |U203-204 |MAX3281E      |Single RS-485 Receiver,      |      | Yes
 |    |    |         |              |52Mbps, SOT23-6              |      |
-|35  |1   |U300     |MAX4372T      |High-side current sense      |      |
+|35  |1   |U300     |MAX4372T      |High-side current sense      |      | Yes
 |    |    |         |              |amplifier, 0-28V             |      |
 |36  |4   |X1-4     |PHOLE-#4      |Mounting Hole #4 Screw       |      |
 |37  |1   |R203     |RES-0603,100  |SURFACE MOUNT RESISTOR 0.031 |100   |
@@ -93,19 +93,19 @@
 |46  |1   |R101     |RES-0603,NU   |SURFACE MOUNT RESISTOR 0.031 |NU    |
 |    |    |         |              |X 0.061 INCHES, 1/10W        |      |
 |47  |1   |R300     |RES-2512,0.01 |2512 SMD Resistor            |0.01  |
-|48  |1   |D300     |SCH_CD214A-B36|Diode, Schottky, 3A 60V, SMA |0.7V  |
+|48  |1   |D300     |SCH_CD214A-B36|Diode, Schottky, 3A 60V, SMA |0.7V  | Yes
 |    |    |         |0LF,0.7V      |                             |      |
-|49  |1   |U202     |SN65HVD35     |Full Duplex RS-485           |      |
+|49  |1   |U202     |SN65HVD35     |Full Duplex RS-485           |      | Yes
 |    |    |         |              |Transceiver w/ Enables, 3.3V,|      |
 |    |    |         |              |SOIC14                       |      |
-|50  |1   |U200     |SN74AHCT1G125_|Single TTL Buffer, SC-70-5   |      |
+|50  |1   |U200     |SN74AHCT1G125_|Single TTL Buffer, SC-70-5   |      | yes
 |    |    |         |DCK           |                             |      |
-|51  |1   |S100     |SW_SPST_SWT6-E|Tactile Pushbutton, SPST, 6mm|      |
+|51  |1   |S100     |SW_SPST_SWT6-E|Tactile Pushbutton, SPST, 6mm|      | yes
 |    |    |         |5M            |                             |      |
-|52  |1   |U301     |TPS5401       |Integrated Buck Converter,   |      |
+|52  |1   |U301     |TPS5401       |Integrated Buck Converter,   |      | Ordered
 |    |    |         |              |0.5A Max, 42V In Max         |      |
-|53  |1   |U302     |TPS79333      |3.3V LDO, 200mA Maximum      |      |
+|53  |1   |U302     |TPS79333      |3.3V LDO, 200mA Maximum      |      | Ordered
 |    |    |         |              |current                      |      |
-|54  |6   |D200-205 |TVS_NUP2105LT1|Dual Bidirectional TVS Diode,|      |
+|54  |6   |D200-205 |TVS_NUP2105LT1|Dual Bidirectional TVS Diode,|      | Yes
 |    |    |         |G             |350W, SOT-23                 |      |
 |-----------------------------------------------------------------------|
