@@ -1,0 +1,3 @@
+Changes Needed For Rev 4.
+	Serial Connector has to be rotated, it is backwards on the currnet Rev.
+	
