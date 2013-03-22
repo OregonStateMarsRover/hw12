@@ -1,0 +1,12 @@
+Changes Needed For Rev 4.
+	-Serial Connector has to be rotated, it is backwards on the current Rev.
+	-A linear regulator has to be added to power the Beagle Bone from the 
+	 shield, the power will be coming from a 9 volt switching regulator
+	-All Uarts will remain the same except the Int will become the gps
+	 Uart and because of this the Tripod and Video Transmitter will be connected
+	 to the full sized usb on the beagle bone and an usb hub will be used
+	 to communicate with them
+	-(?)Do we want to assign certain gpIO ports to the solenoids and place 
+	 them specially on the board?
+	-Board Silk Screen must be updated and MUST be included in the order this time
+	
