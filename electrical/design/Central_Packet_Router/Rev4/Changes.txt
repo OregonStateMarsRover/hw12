@@ -6,7 +6,7 @@ Changes Needed For Rev 4.
 	 Uart and because of this the Tripod and Video Transmitter will be connected
 	 to the full sized usb on the beagle bone and an usb hub will be used
 	 to communicate with them
-	-(?)Do we want to assign certain gpIO ports to the solenoids and place 
+	-(?)Do we want to assign certain GPIO ports to the solenoids and place 
 	 them specially on the board?
 	-Board Silk Screen must be updated and MUST be included in the order this time
-	
+	-Add GPIO connectors for solenoids 
