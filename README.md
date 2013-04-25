@@ -1,4 +1,4 @@
-How this document is organized
+How this repository is organized
 ====================
 
 Electrical board documentation
@@ -13,9 +13,8 @@ might do that as well.
 
 Commercial parts
 -------------------
-Parts that aren't custom built (motors, sensors, motor controllers, etc) should be in documents/
+Parts that aren't custom built (motors, sensors, motor controllers, etc) should be in documents.
 These will be further organized by folder.
-Since 
 
 Currently there are some issues
 ------------------
